@@ -1,29 +1,16 @@
-lib/
-|-- data/
-|   |-- models/
-|   |   |-- product.dart
-|   |
-|   |-- network/
-|   |   |-- services/
-|   |   |   |-- api_service.dart
-|   |   |   |-- api_service.g.dart (auto-generated)
-|   |   |   |-- api_client.dart
-|   |
-|   |-- response/
-|   |   |-- products_response.dart
-|
-|-- repository/
-|   |-- product_repository.dart
-|
-|-- viewmodels/
-|   |-- product_viewmodel.dart
-|
-|-- views/
-|   |-- home_screen.dart
-|   |-- product_details_screen.dart
-|
-|-- widgets/
-|   |-- custom_gesture_detector_widget.dart
-|   |-- shimmer_loading_indicator.dart
-|
-|-- main.dart
+# mini_app
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
