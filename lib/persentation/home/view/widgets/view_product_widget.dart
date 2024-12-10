@@ -21,7 +21,7 @@ class ViewProductWidget extends StatelessWidget {
         crossAxisCount: width > 600 ? 4 : 2,
         crossAxisSpacing: width * 0.02,
         mainAxisSpacing: height * 0.02,
-        mainAxisExtent: width > 600 ? height * 0.36 : width > 400 ? height * 0.34 : height * 0.38,
+        mainAxisExtent: width > 600 ? height * 0.36 : width > 400 ? height * 0.37 : height * 0.38,
       ),
       itemCount: productViewModel.products?.length ?? 0,
       itemBuilder: (context, index) {
