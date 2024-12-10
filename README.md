@@ -27,9 +27,6 @@ The app uses the Provider package for state management. Provider is a recommende
 
 ## API Handling
 
-The app fetches product data from the following API:
-- **URL**: [https://dummyjson.com/products?limit=10](https://dummyjson.com/products?limit=10)
-
 The `fetchProducts` function in the `ProductViewModel` handles the API call and updates the state accordingly. Errors are handled gracefully by displaying an error message if the API call fails.
 
 ## UI Design
