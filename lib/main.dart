@@ -1,11 +1,24 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_app/core/di/service_locator.dart';
 import 'package:mini_app/persentation/cart_view/view_model/cart_view_model.dart';
-import 'package:mini_app/persentation/home/view/home_view.dart';
+import 'package:mini_app/persentation/sign_in/view/login_view.dart';
 import 'package:provider/provider.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   setupServiceLocator();
+
+  try {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+    print("✅ Firebase initialized successfully!");
+  } catch (e) {
+    print("❌ Firebase initialization error: $e");
+  }
+
   runApp(const MyApp());
 }
 
@@ -18,7 +31,7 @@ class MyApp extends StatelessWidget {
       create: (context) => getIt<CartViewModel>(),
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomeScreen(),
+        home: LoginView(),
       ),
     );
   }

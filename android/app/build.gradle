@@ -42,3 +42,29 @@ android {
 flutter {
     source = "../.."
 }
+
+dependencies {
+    // Import the Firebase BoM
+    implementation platform("com.google.firebase:firebase-bom:33.10.0")
+
+    // Add Firebase Analytics (required for Firebase integration)
+    implementation("com.google.firebase:firebase-analytics")
+    
+    // Add other Firebase dependencies if needed
+    implementation("com.google.firebase:firebase-auth")
+    // implementation("com.google.firebase:firebase-firestore")
+    // implementation("com.google.firebase:firebase-storage")
+}
+
+plugins {
+    // ...
+    // Add the dependency for the Google services Gradle plugin
+    id("com.google.gms.google-services") version "4.4.2" apply false
+}
+
+plugins {
+    id("com.android.application")
+    
+    // Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
+}

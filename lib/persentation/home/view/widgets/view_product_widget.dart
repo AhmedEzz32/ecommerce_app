@@ -29,8 +29,8 @@ class ViewProductWidget extends StatelessWidget {
         return CustomGestureDetectorWidget(
           onTap: () => navigateTo(context, ProductDetailsView(product: product)),
           child: Container(
-            margin: const EdgeInsets.all(8),
-            padding: const EdgeInsets.all(8),
+            margin: EdgeInsets.symmetric(horizontal: width * 0.008, vertical: height * 0.008),
+            padding: EdgeInsets.symmetric(horizontal: width * 0.008, vertical: height * 0.008),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(8),
