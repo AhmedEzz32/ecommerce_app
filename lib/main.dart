@@ -5,6 +5,8 @@ import 'package:mini_app/persentation/cart_view/view_model/cart_view_model.dart'
 import 'package:mini_app/persentation/sign_in/view/login_view.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
+import 'package:firebase_app_check/firebase_app_check.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,6 +20,10 @@ void main() async {
   } catch (e) {
     print("❌ Firebase initialization error: $e");
   }
+    await FirebaseAppCheck.instance.activate(
+    androidProvider: AndroidProvider.playIntegrity, // أو safetyNet لو القديم
+    appleProvider: AppleProvider.appAttest, // أو deviceCheck
+  ); 
 
   runApp(const MyApp());
 }
