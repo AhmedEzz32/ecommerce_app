@@ -11,7 +11,7 @@
     <style name="Ucrop.CropTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
 
     <!-- Theme applied to the Android Window as soon as the process has started -->
-    <style name="NormalTheme" parent="Theme.MaterialComponents">
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
         <item name="android:windowBackground">?android:colorBackground</item>
     </style>
 </resources>

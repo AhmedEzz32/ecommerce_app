@@ -1,4 +1,3 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_app/core/di/service_locator.dart';
@@ -18,9 +17,9 @@ void main() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    print("✅👌👌 Firebase initialized successfully!");
+    print("✅ Firebase initialized successfully!");
   } catch (e) {
-    print("❌😊😍 Firebase initialization error: $e");
+    print("❌ Firebase initialization error: $e");
   }
   await FirebaseAppCheck.instance.activate(
     androidProvider: AndroidProvider.playIntegrity, // أو safetyNet لو القديم
@@ -37,10 +36,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<CartViewModel>(
       create: (context) => getIt<CartViewModel>(),
-      child: MaterialApp(
+      child: const MaterialApp(
         debugShowCheckedModeBanner: false,
-        // home: HomeScreen(),
-        home: FirebaseAuth.instance.currentUser == null ? const LoginView() : const HomeScreen(),
+        home: LoginView(),
       ),
     );
   }

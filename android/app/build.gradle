@@ -57,10 +57,4 @@ dependencies {
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
     implementation("com.google.firebase:firebase-storage")
-
-    def emoji2_version = "1.4.0"
-
-    implementation("androidx.emoji2:emoji2:$emoji2_version")
-    implementation("androidx.emoji2:emoji2-views:$emoji2_version")
-    implementation("androidx.emoji2:emoji2-views-helper:$emoji2_version")
 }
