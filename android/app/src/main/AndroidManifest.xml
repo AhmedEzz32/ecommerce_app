@@ -30,9 +30,8 @@
         <!-- UCropActivity declaration -->
         <activity
             android:name="com.yalantis.ucrop.UCropActivity"
-            android:theme="@android:style/Theme.Holo.Light.Dialog"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
+            android:theme="@style/Ucrop.CropTheme"/>
 
         <!-- Don't delete the meta-data below. -->
         <meta-data

@@ -21,7 +21,7 @@ class AddToCartWidget extends StatelessWidget {
           CartItem(
             title: product.title, 
             price: product.price, 
-            thumbnail: product.thumbnail,
+            image: product.image,
           ),
         );
         ScaffoldMessenger.of(context).showSnackBar(

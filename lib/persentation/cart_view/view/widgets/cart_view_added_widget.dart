@@ -21,7 +21,7 @@ class CartViewAddedWidget extends StatelessWidget {
                   itemBuilder: (context, index) {
                     final item = cartViewModel.cartItems[index];
                     return ListTile(
-                      leading: Image.network(item.thumbnail, height: 50, width: 50),
+                      leading: Image.network(item.image, height: 50, width: 50),
                       title: Text(item.title),
                       subtitle: Text('\$${item.price.toStringAsFixed(2)}'),
                       trailing: IconButton(

@@ -5,6 +5,7 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mini_app/persentation/home/view/home_view.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class ProfileEditScreen extends StatefulWidget {
@@ -96,7 +97,11 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
         'lastName': _lastNameController.text,
         'profileImage': imageUrl ?? user.photoURL,
       });
-      Navigator.pop(context);
+      Navigator.push(
+        context, 
+        MaterialPageRoute(builder: (_) {
+        return const HomeScreen();
+      }));
     } catch (e) {
       debugPrint("Error saving profile: $e");
     }

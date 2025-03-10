@@ -47,7 +47,7 @@ class ViewProductWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 CachedNetworkImage(
-                  imageUrl: product.thumbnail,
+                  imageUrl: product.image,
                   height: height * 0.2,
                   fit: BoxFit.contain,
                 ),

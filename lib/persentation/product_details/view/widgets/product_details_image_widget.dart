@@ -14,7 +14,7 @@ class ProductDetailsImageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: CachedNetworkImage(
-        imageUrl: product.thumbnail,
+        imageUrl: product.image,
         height: 200,
         fit: BoxFit.contain,
       ),
