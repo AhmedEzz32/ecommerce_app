@@ -25,7 +25,7 @@ class ShimmerHelper{
                   1,
                 ],
                 colors: [
-                  const Color(0xFF65676B).withOpacity(0.8),
+                  const Color(0xFF65676B).withValues(alpha: 0.8),
                   Colors.transparent,
                 ],
               ),
@@ -54,7 +54,7 @@ class ShimmerHelper{
             boxShadow: [
               BoxShadow(
                 blurRadius: 6,
-                color: const Color(0xFF65676B).withOpacity(0.8),
+                color: const Color(0xFF65676B).withValues(alpha: 0.8),
               ),
             ],
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_app/persentation/edit_profile/view/profile_edit_screen.dart';
 import 'package:mini_app/persentation/home/view_model/product_view_model.dart';
 import 'package:mini_app/persentation/home/view/widgets/home_view_app_bar.dart';
 import 'package:mini_app/persentation/home/view/widgets/home_view_body.dart';
@@ -44,6 +45,10 @@ class _HomeScreenState extends State<HomeScreen> {
               leading: const Icon(Icons.edit),
               title: const Text("Edit Profile"),
               onTap: () {
+                Navigator.push(
+                  context, 
+                  MaterialPageRoute(builder: (_) => const ProfileEditScreen()),
+                );
                 // Navigator.push(
                 //   context,
                 //   MaterialPageRoute(
