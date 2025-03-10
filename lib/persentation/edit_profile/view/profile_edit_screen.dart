@@ -1,38 +1,34 @@
 import 'dart:io';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mini_app/persentation/home/view/home_view.dart';
+import 'package:mini_app/persentation/edit_profile/view_model/edit_profile_view_model.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 class ProfileEditScreen extends StatefulWidget {
-  final String firstName;
-  final String lastName;
-
-  const ProfileEditScreen({
-    super.key, 
-    required this.firstName, 
-    required this.lastName,
-  });
+  const ProfileEditScreen({super.key});
 
   @override
-  _ProfileEditScreenState createState() => _ProfileEditScreenState();
+  ProfileEditScreenState createState() => ProfileEditScreenState();
 }
 
-class _ProfileEditScreenState extends State<ProfileEditScreen> {
-  final TextEditingController _firstNameController = TextEditingController();
-  final TextEditingController _lastNameController = TextEditingController();
+class ProfileEditScreenState extends State<ProfileEditScreen> {
 
-  File? _imageFile;
+  late final EditProfileViewModel _viewModel;
 
   @override
   void initState() {
     super.initState();
-    _firstNameController.text = widget.firstName;
-    _lastNameController.text = widget.lastName;
+
+    _viewModel = EditProfileViewModel();
+
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    _viewModel.updateFirstName(user.displayName?.split(' ')[0] ?? '');
+    _viewModel.updateLastName(user.displayName?.split(' ')[1] ?? '');
+    _viewModel.updateImage(null);
   }
 
   Future<void> _pickImage() async {
@@ -75,35 +71,8 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
     );
     if (croppedFile != null) {
       setState(() {
-        _imageFile = File(croppedFile.path);
+        _viewModel.updateImage(File(croppedFile.path));
       });
-    }
-  }
-
-  Future<void> _saveProfile() async {
-    try {
-      String? imageUrl;
-      final user = FirebaseAuth.instance.currentUser;
-      if (user == null) return;
-
-      if (_imageFile != null) {
-        final ref = FirebaseStorage.instance.ref().child('user_images/${user.uid}.jpg');
-        await ref.putFile(_imageFile!);
-        imageUrl = await ref.getDownloadURL();
-      }
-
-      await FirebaseFirestore.instance.collection('users').doc(user.uid).update({
-        'firstName': _firstNameController.text,
-        'lastName': _lastNameController.text,
-        'profileImage': imageUrl ?? user.photoURL,
-      });
-      Navigator.push(
-        context, 
-        MaterialPageRoute(builder: (_) {
-        return const HomeScreen();
-      }));
-    } catch (e) {
-      debugPrint("Error saving profile: $e");
     }
   }
 
@@ -120,7 +89,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
                 CircleAvatar(
                   radius: 50,
                   backgroundImage:
-                      _imageFile != null ? FileImage(_imageFile!) : NetworkImage(FirebaseAuth.instance.currentUser?.photoURL ?? ''),
+                      _viewModel.imageFile != null ? FileImage(_viewModel.imageFile!) : NetworkImage(FirebaseAuth.instance.currentUser?.photoURL ?? ''),
                 ),
                 PositionedDirectional(
                   bottom: 0,
@@ -144,11 +113,11 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
             ),
             const SizedBox(height: 20),
             TextField(
-              controller: _firstNameController,
+              controller: _viewModel.firstNameController,
               decoration: const InputDecoration(labelText: 'First Name'),
             ),
             TextField(
-              controller: _lastNameController,
+              controller: _viewModel.lastNameController,
               decoration: const InputDecoration(labelText: 'Last Name'),
             ),
             const SizedBox(height: 20),
@@ -156,7 +125,7 @@ class _ProfileEditScreenState extends State<ProfileEditScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 ElevatedButton(
-                  onPressed: _saveProfile,
+                  onPressed: () => _viewModel.saveProfile(context),
                   child: const Text("Save"),
                 ),
                 ElevatedButton(
