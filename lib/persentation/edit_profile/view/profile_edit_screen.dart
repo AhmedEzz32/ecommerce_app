@@ -28,6 +28,7 @@ class ProfileEditScreenState extends State<ProfileEditScreen> {
 
     _viewModel.updateFirstName(user.displayName?.split(' ')[0] ?? '');
     _viewModel.updateLastName(user.displayName?.split(' ')[1] ?? '');
+    _viewModel.updateEmail(user.email ?? '');
     _viewModel.updateImage(null);
   }
 

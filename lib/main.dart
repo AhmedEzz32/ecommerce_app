@@ -3,7 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_app/core/di/service_locator.dart';
 import 'package:mini_app/persentation/cart_view/view_model/cart_view_model.dart';
-import 'package:mini_app/persentation/home/view/home_view.dart';
+import 'package:mini_app/persentation/edit_profile/view/profile_edit_screen.dart';
 import 'package:mini_app/persentation/sign_in/view/login_view.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
@@ -39,8 +39,7 @@ class MyApp extends StatelessWidget {
       create: (context) => getIt<CartViewModel>(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        // home: HomeScreen(),
-        home: FirebaseAuth.instance.currentUser == null ? const LoginView() : const HomeScreen(),
+        home: FirebaseAuth.instance.currentUser == null ? const LoginView() : const ProfileEditScreen(),
       ),
     );
   }

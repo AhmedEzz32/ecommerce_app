@@ -53,7 +53,11 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                 });
                 Navigator.pushReplacement(
                   context, 
-                  MaterialPageRoute(builder: (_) => const HomeScreen()),
+                  MaterialPageRoute(builder: (_) => HomeScreen(
+                    firstName: user.displayName?.split(' ')[0] ?? '',
+                    lastName: user.displayName?.split(' ')[1] ?? '',
+                    profileImage: user.photoURL ?? 'https://static-00.iconduck.com/assets.00/avatar-default-icon-1024x1024-dvpl2mz1.png',
+                  )),
                 );
               }
             },

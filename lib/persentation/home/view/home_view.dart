@@ -5,7 +5,19 @@ import 'package:mini_app/persentation/home/view/widgets/home_view_app_bar.dart';
 import 'package:mini_app/persentation/home/view/widgets/home_view_body.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+
+  final String? firstName;
+  final String? lastName;
+  final String? email;
+  final String? profileImage;
+
+  const HomeScreen({
+    super.key, 
+    this.firstName, 
+    this.lastName, 
+    this.profileImage, 
+    this.email
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -13,9 +25,6 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late final ProductViewModel productViewModel;
-  String? firstName;
-  String? lastName;
-  String? profileImage;
 
   @override
   void initState() {
@@ -26,20 +35,20 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const HomeViewAppBar(),
+      appBar:  HomeViewAppBar(productViewModel: productViewModel),
       drawer: Drawer(
         child: Column(
           children: [
             UserAccountsDrawerHeader(
               currentAccountPicture: CircleAvatar(
                 backgroundImage: NetworkImage(
-                  profileImage?.isNotEmpty == true
-                      ? profileImage!
+                  widget.profileImage?.isNotEmpty == true
+                      ? widget.profileImage!
                       : "https://static-00.iconduck.com/assets.00/avatar-default-icon-1024x1024-dvpl2mz1.png",
                 ),
               ),
-              accountName: Text((firstName != null && lastName != null) ? '$firstName $lastName' : "name"),
-              accountEmail: Text(lastName ?? "Email"),
+              accountName: Text('${widget.firstName} ${widget.lastName!}'),
+              accountEmail: Text(widget.email!),
             ),
             ListTile(
               leading: const Icon(Icons.edit),

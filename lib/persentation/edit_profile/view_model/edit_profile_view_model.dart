@@ -19,6 +19,9 @@ class EditProfileViewModel {
   final TextEditingController _lastNameController = TextEditingController();
   TextEditingController get lastNameController => _lastNameController;
 
+  final TextEditingController _emailController = TextEditingController();
+  TextEditingController get emailController => _emailController;
+
   File? _imageFile;
   File? get imageFile => _imageFile;
 
@@ -38,6 +41,10 @@ class EditProfileViewModel {
     _lastNameController.text = lastName;
   }
 
+  void updateEmail(String email) {
+    _emailController.text = email;
+  }
+
   Future<void> saveProfile(BuildContext context) async {
     try {
       final user = FirebaseAuth.instance.currentUser;
@@ -54,7 +61,12 @@ class EditProfileViewModel {
 
       Navigator.push(
         context, 
-        MaterialPageRoute(builder: (_) => const HomeScreen()),
+        MaterialPageRoute(builder: (_) => HomeScreen(
+          firstName: _firstNameController.text,
+          lastName: _lastNameController.text,
+          email: _emailController.text,
+          profileImage: _imageFile?.path ?? 'https://static-00.iconduck.com/assets.00/avatar-default-icon-1024x1024-dvpl2mz1.png',
+        )),
       );
     } catch (e) {
       debugPrint("Error saving profile: $e");
