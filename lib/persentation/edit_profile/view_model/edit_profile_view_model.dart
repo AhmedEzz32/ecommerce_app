@@ -3,7 +3,7 @@ import 'dart:io' show File;
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:mini_app/core/di/service_locator.dart';
+import 'package:mini_app/core/di/service_locators.dart';
 import 'package:mini_app/data/requests/requests.dart';
 import 'package:mini_app/domain/repository/repository.dart';
 import 'package:mini_app/domain/usecase/edit_profile_usecase.dart';

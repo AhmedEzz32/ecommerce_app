@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:mini_app/core/di/service_locator.dart';
-import 'package:mini_app/core/services/stripe_service.dart';
+import 'package:mini_app/core/di/service_locators.dart';
+import 'package:mini_app/core/services/stripe_service_widget.dart';
 
 class StripeWidget extends StatelessWidget {
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mini_app/core/di/service_locator.dart';
+import 'package:mini_app/core/di/service_locators.dart';
 import 'package:mini_app/domain/models/product_model.dart';
 import 'package:mini_app/persentation/cart_view/view_model/cart_view_model.dart';
 import 'add_to_cart_widget.dart';

@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:mini_app/core/di/service_locator.dart';
+import 'package:mini_app/core/di/service_locators.dart';
 import 'package:mini_app/my_app.dart';
 import 'firebase_options.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';

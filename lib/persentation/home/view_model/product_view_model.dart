@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mini_app/core/di/service_locator.dart';
+import 'package:mini_app/core/di/service_locators.dart';
 import 'package:mini_app/domain/repository/repository.dart';
 import 'package:mini_app/domain/usecase/products_usecase.dart';
 import '../../../domain/models/product_model.dart';

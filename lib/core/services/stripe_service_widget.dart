@@ -2,7 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart' show ThemeMode, debugPrint;
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:mini_app/core/constants.dart';
-import 'package:mini_app/core/services/_service_interface.dart';
+import 'package:mini_app/core/services/_service_interface_widget.dart';
 
 class StripeService extends ServiceInterface {
 
@@ -14,12 +14,12 @@ class StripeService extends ServiceInterface {
   Future<void> init() async {
     Stripe.publishableKey = _constants.stripe_publishable_key;
     await Stripe.instance.applySettings();
-    print("StripeService initialized successfully!");
+    debugPrint("StripeService initialized successfully!");
   }
 
   @override
   Future<void> dispose() async {
-    print("StripeService disposed successfully!");
+    debugPrint("StripeService disposed successfully!");
   }
 
   Future<bool> pay({

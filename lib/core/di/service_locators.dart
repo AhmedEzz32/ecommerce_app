@@ -1,9 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:mini_app/core/constants.dart';
-import 'package:mini_app/core/services/stripe_service.dart';
-import 'package:mini_app/data/data_source/firebase_datasource.dart';
-import 'package:mini_app/data/data_source/shared_preference_data_source.dart';
+import 'package:mini_app/core/services/stripe_service_widget.dart';
+import 'package:mini_app/data/data_source/firebase_data_source.dart';
+import 'package:mini_app/data/data_source/shared_preference_datasource.dart';
 import 'package:mini_app/data/network/services/api_service.dart';
 import 'package:mini_app/data/repository_impl/repository_impl.dart';
 import 'package:mini_app/domain/repository/repository.dart';
