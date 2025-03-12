@@ -1,0 +1,23 @@
+{
+    "products": "المنتجات",
+    "language": "اللغة",
+    "logout": "تسجيل الخروج",
+    "english": "الإنجليزية",
+    "arabic": "العربية",
+    "guest": "زائر",
+    "edit_profile": "تعديل الملف الشخصي",
+    "price": "السعر",
+    "added_to_cart": "تمت الإضافة إلى السلة",
+    "add_to_cart": "أضف إلى السلة",
+    "your_cart_is_empty": "سلتك فارغة",
+    "total": "الإجمالي",
+    "cart": "السلة",
+    "checkout": "الدفع",
+    "order": "الطلب",
+    "my_cart": "سلتي",
+    "pay_with_stripe": "الدفع بواسطة Stripe",
+    "stripe_service_initialized_successfully": "تم تهيئة خدمة Stripe بنجاح",
+    "stripe_service_initialized_failed": "فشل تهيئة خدمة Stripe",
+    "stripe_service_disposed_successfully": "تم التخلص من خدمة Stripe بنجاح",
+    "stripe_service_disposed_failed": "فشل التخلص من خدمة Stripe"
+}

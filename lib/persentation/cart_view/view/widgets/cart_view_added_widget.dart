@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_app/generated/l10n.dart';
 import 'package:mini_app/persentation/cart_view/view_model/cart_view_model.dart';
 import 'package:provider/provider.dart';
 
@@ -13,8 +14,8 @@ class CartViewAddedWidget extends StatelessWidget {
       builder: (context, cartViewModel, child) {
         return Expanded(
           child: cartViewModel.cartItems.isEmpty
-              ? const Center(
-                  child: Text('Your cart is empty!', style: TextStyle(fontSize: 18)),
+              ? Center(
+                  child: Text('${S.current.your_cart_is_empty}!', style: const TextStyle(fontSize: 18)),
                 )
               : ListView.builder(
                   itemCount: cartViewModel.cartItems.length,

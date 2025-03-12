@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_app/generated/l10n.dart';
 import 'package:mini_app/persentation/common/widgets/navigation/navigation_widget.dart';
 import 'package:mini_app/persentation/home/view/widgets/product_search.dart';
 import '../../../cart_view/view/cart_view.dart';
@@ -22,7 +23,7 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
         ),
       ),
-      title: const Text('Products'),
+      title: Text(S.current.products, style: const TextStyle(color: Colors.white70)),
       actions: [
         IconButton(
           icon: const Icon(
@@ -34,9 +35,9 @@ class HomeViewAppBar extends StatelessWidget implements PreferredSizeWidget {
           },
         ),
         TextButton.icon(
-          label: const Text('myCart'),
+          label: Text(S.current.my_cart),
           style: TextButton.styleFrom(foregroundColor: Colors.white),
-          icon: const Icon(Icons.shopping_cart),
+          icon: const Icon(Icons.shopping_cart, color: Colors.white70,),
           onPressed: () {
             navigateTo(context, const CartScreen());
           },

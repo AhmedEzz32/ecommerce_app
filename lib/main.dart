@@ -13,9 +13,9 @@ void main() async {
     await Firebase.initializeApp(
       options: DefaultFirebaseOptions.currentPlatform,
     );
-    print("✅👌👌 Firebase initialized successfully!");
+    debugPrint("✅👌👌 Firebase initialized successfully!");
   } catch (e) {
-    print("❌😊😍 Firebase initialization error: $e");
+    debugPrint("❌😊😍 Firebase initialization error: $e");
   }
   await FirebaseAppCheck.instance.activate(
     androidProvider: AndroidProvider.playIntegrity, // أو safetyNet لو القديم

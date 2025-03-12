@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mini_app/generated/l10n.dart';
 import 'widgets/cart_view_body.dart';
 
 class CartScreen extends StatelessWidget {
@@ -9,7 +10,7 @@ class CartScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('My Cart'),
+        title: Text(S.current.total),
       ),
       body: const CartViewBody(),
     );

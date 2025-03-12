@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:mini_app/generated/l10n.dart';
 import 'package:mini_app/persentation/common/widgets/gesture_detector/custom_gesture_detector_widget.dart';
 import 'package:mini_app/persentation/common/widgets/navigation/navigation_widget.dart';
 import 'package:mini_app/persentation/home/view_model/product_view_model.dart';
@@ -66,7 +67,7 @@ class ViewProductWidget extends StatelessWidget {
                 Align(
                   alignment: Alignment.bottomRight,
                   child: Text(
-                    'Price: \$${product.price.toStringAsFixed(2)}',
+                    '${S.current.price}: \$${product.price.toStringAsFixed(2)}',
                     style: const TextStyle(fontSize: 12, color: Colors.green),
                   ),
                 ),

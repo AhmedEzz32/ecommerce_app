@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mini_app/core/constants.dart';
+import 'package:mini_app/generated/l10n.dart';
 import 'package:mini_app/persentation/home/view/home_view.dart';
 import 'package:mini_app/persentation/sign_in/view_model/login_view_model.dart';
 import 'package:sign_in_button/sign_in_button.dart';
@@ -27,9 +29,9 @@ class _LoginViewBodyState extends State<LoginViewBody> {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          const Text(
-            'Welcome to Mini App',
-            style: TextStyle(
+          Text(
+            S.current.welcome_to_mini_app,
+            style: const TextStyle(
               fontSize: 24,
               fontWeight: FontWeight.bold,
             ),
@@ -56,7 +58,7 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                   MaterialPageRoute(builder: (_) => HomeScreen(
                     firstName: user.displayName?.split(' ')[0] ?? '',
                     lastName: user.displayName?.split(' ')[1] ?? '',
-                    profileImage: user.photoURL ?? 'https://static-00.iconduck.com/assets.00/avatar-default-icon-1024x1024-dvpl2mz1.png',
+                    profileImage: user.photoURL ?? Constants().default_image,
                   )),
                 );
               }

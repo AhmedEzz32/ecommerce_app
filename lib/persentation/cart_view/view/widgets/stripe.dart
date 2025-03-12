@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:mini_app/core/di/service_locators.dart';
 import 'package:mini_app/core/services/stripe_service_widget.dart';
+import 'package:mini_app/generated/l10n.dart';
 
 class StripeWidget extends StatelessWidget {
 
@@ -18,7 +19,7 @@ class StripeWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       icon: const Icon(Icons.payment),
-      label: const Text('Pay with Stripe'),
+      label: Text(S.current.pay_with_stripe),
       style: ElevatedButton.styleFrom(
         fixedSize: const Size(double.infinity, 50),
       ),

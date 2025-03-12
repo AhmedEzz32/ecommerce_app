@@ -3,6 +3,8 @@ class Constants {
 
   /// shared preferences keys
   final String saved_user_key = 'saved_user_key';
+
+  final String default_image = 'https://static-00.iconduck.com/assets.00/avatar-default-icon-1024x1024-dvpl2mz1.png';
   
 
   /// stripe keys
