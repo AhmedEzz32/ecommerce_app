@@ -1,14 +1,9 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_app/core/di/service_locator.dart';
-import 'package:mini_app/persentation/cart_view/view_model/cart_view_model.dart';
-import 'package:mini_app/persentation/edit_profile/view/profile_edit_screen.dart';
-import 'package:mini_app/persentation/sign_in/view/login_view.dart';
-import 'package:provider/provider.dart';
+import 'package:mini_app/my_app.dart';
 import 'firebase_options.dart';
 import 'package:firebase_app_check/firebase_app_check.dart';
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,19 +23,4 @@ void main() async {
   );
 
   runApp(const MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider<CartViewModel>(
-      create: (context) => getIt<CartViewModel>(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: FirebaseAuth.instance.currentUser == null ? const LoginView() : const ProfileEditScreen(),
-      ),
-    );
-  }
 }

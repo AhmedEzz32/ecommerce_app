@@ -55,18 +55,9 @@ class _HomeScreenState extends State<HomeScreen> {
               title: const Text("Edit Profile"),
               onTap: () {
                 Navigator.push(
-                  context, 
+                  context,
                   MaterialPageRoute(builder: (_) => const ProfileEditScreen()),
                 );
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (_) => ProfileEditScreen(
-                //       firstName: firstName ?? '',
-                //       lastName: lastName ?? '',
-                //     ),
-                //   ),
-                // ).then((_) => _fetchUserData());
               },
             ),
           ],
