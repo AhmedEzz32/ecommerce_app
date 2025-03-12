@@ -43,10 +43,13 @@ class ProfileEditScreenState extends State<ProfileEditScreen> {
       // Permission granted, pick image
       final ImagePicker picker = ImagePicker();
       final XFile? pickedFile = await picker.pickImage(source: ImageSource.gallery);
-      if (pickedFile != null) {
-        _cropImage(File(pickedFile.path));
+        if (pickedFile == null) {
+        // No image selected
+        return;
       }
-    } else {
+
+    _cropImage(File(pickedFile.path));
+      } else {
       // Show an error if permissions are denied
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Please grant camera and gallery permissions.')),

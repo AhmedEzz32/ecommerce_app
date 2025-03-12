@@ -20,5 +20,9 @@
     "stripe_service_initialized_successfully": "Stripe service initialized successfully",
     "stripe_service_initialized_failed": "Stripe service initialized failed",
     "stripe_service_disposed_successfully": "Stripe service disposed successfully",
-    "stripe_service_disposed_failed": "Stripe service disposed failed"
+    "stripe_service_disposed_failed": "Stripe service disposed failed",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "register": "Register"
 }

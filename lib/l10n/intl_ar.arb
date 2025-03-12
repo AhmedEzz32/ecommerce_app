@@ -19,5 +19,9 @@
     "stripe_service_initialized_successfully": "تم تهيئة خدمة Stripe بنجاح",
     "stripe_service_initialized_failed": "فشل تهيئة خدمة Stripe",
     "stripe_service_disposed_successfully": "تم التخلص من خدمة Stripe بنجاح",
-    "stripe_service_disposed_failed": "فشل التخلص من خدمة Stripe"
+    "stripe_service_disposed_failed": "فشل التخلص من خدمة Stripe",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "login": "تسجيل الدخول",
+    "register": "تسجيل"
 }
