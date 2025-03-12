@@ -20,7 +20,9 @@ class TotalCartViewWidget extends StatelessWidget {
             ),
 
             if (cartViewModel.cartItems.isNotEmpty)
-              StripeWidget(),
+              StripeWidget(
+                amount: cartViewModel.totalPrice,
+              ),
           ],
         );
       },

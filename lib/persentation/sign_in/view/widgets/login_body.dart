@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:mini_app/persentation/edit_profile/view/profile_edit_screen.dart';
 import 'package:mini_app/persentation/home/view/home_view.dart';
 import 'package:mini_app/persentation/sign_in/view_model/login_view_model.dart';
 import 'package:sign_in_button/sign_in_button.dart';
