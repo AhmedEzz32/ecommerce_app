@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mini_app/persentation/cart_view/view/widgets/stripe_widget.dart';
+import 'package:mini_app/persentation/cart_view/view/widgets/stripe.dart';
 import 'package:mini_app/persentation/cart_view/view_model/cart_view_model.dart';
 import 'package:provider/provider.dart';
 
