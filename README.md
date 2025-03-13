@@ -43,9 +43,9 @@ The UI design follows modern design practices and ensures responsiveness. The Ho
 <img width="250" alt="Screenshot 2024-12-10 173754" src="https://github.com/user-attachments/assets/48070ff4-18f3-46b0-a26f-16786e24165a">
 <img width="250" alt="Screenshot 2024-12-10 173846" src="https://github.com/user-attachments/assets/a2bc83ca-72c3-467e-8c93-4dc6c074fee8">
 <img width="250" alt="Screenshot 2024-12-10 174007" src="https://github.com/user-attachments/assets/a12cb75c-55db-475d-8ae7-46442c022178">
+<img width="250" alt="Screenshot 2024-12-10 174104" src="https://github.com/user-attachments/assets/0fd2b0d1-ea01-4c5d-811e-b2caf069a5a8">
 <img width="250" alt="Screenshot 2024-12-10 174104" src="https://github.com/user-attachments/assets/b334c617-b11a-49e9-8d40-a2ddf152de95">
 <img width="250" alt="Screenshot 2024-12-10 174104" src="https://github.com/user-attachments/assets/69f014da-5067-427e-b96a-6305e56b239d">
 <img width="250" alt="Screenshot 2024-12-10 174104" src="https://github.com/user-attachments/assets/6137a19d-881e-4c81-8667-0b6642177c4c">
 <img width="250" alt="Screenshot 2024-12-10 174104" src="https://github.com/user-attachments/assets/829d3212-a339-4815-aaf7-42ff0759a6b5">
-<img width="250" alt="Screenshot 2024-12-10 174104" src="https://github.com/user-attachments/assets/0fd2b0d1-ea01-4c5d-811e-b2caf069a5a8">
 <img width="250" alt="Screenshot 2024-12-10 174104" src="https://github.com/user-attachments/assets/179dcfb9-50b2-4c62-8b07-0f1d23463948">
