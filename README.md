@@ -40,6 +40,8 @@ The `fetchProducts` function in the `ProductViewModel` handles fetching product 
 
 The UI design follows modern design practices and ensures responsiveness. The Home Screen displays a list of products with their images, names, and prices. The Product Details Screen includes an "Add to Cart" button.
 
+![b0406c84-cc5e-44ff-a396-c9bc7705c469](https://github.com/user-attachments/assets/48070ff4-18f3-46b0-a26f-16786e24165a)
+
 <img width="291" alt="Screenshot 2024-12-10 173754" src="https://github.com/user-attachments/assets/2651b009-1c2c-4a1d-98a1-23c87fd98984">
 <img width="257" alt="Screenshot 2024-12-10 173846" src="https://github.com/user-attachments/assets/f802f72d-3e37-488f-b750-0e7c851eb6f9">
 <img width="263" alt="Screenshot 2024-12-10 174007" src="https://github.com/user-attachments/assets/b3c97ed6-61a8-4ac0-9001-27879e35cae4">
