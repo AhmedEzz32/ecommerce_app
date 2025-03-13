@@ -4,10 +4,12 @@ This Flutter mini app demonstrates a simple product listing and details screen u
 
 ## Features
 
-- Fetches product data from an API.
-- Displays product image, name, and price on the Home Screen.
-- Navigates to a Product Details Screen with an "Add to Cart" button.
-- Uses modern design practices and ensures responsiveness.
+-Authentication: Users can sign in using Google or email/password. Profile information such as the profile image (with a cropping option), first name, and last name can be edited.
+-Home Screen: Displays products fetched from an API with their images, names, and prices. A search bar allows users to filter products.
+-Navigation: Custom drawer includes the user's image, name, and an option to edit the profile. The drawer also includes options to log out and switch between Arabic and English localization.
+-Product Details: Clicking on a product navigates to a Product Details Screen displaying the product description.
+-Cart: Users can add products to their cart, which displays the total price. A Stripe payment method is integrated for processing payments.
+-App Bar: Includes a search bar and a cart icon for easy navigation.
 
 ## Architecture and State Management
 
@@ -27,7 +29,7 @@ The app uses the Provider package for state management. Provider is a recommende
 
 ## API Handling
 
-The `fetchProducts` function in the `ProductViewModel` handles the API call and updates the state accordingly. Errors are handled gracefully by displaying an error message if the API call fails.
+The `fetchProducts` function in the `ProductViewModel` handles fetching product data from Firebase and updates the app state. Errors are gracefully handled with error messages displayed if the API call fails.
 
 ## UI Design
 
