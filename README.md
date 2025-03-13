@@ -5,10 +5,15 @@ This Flutter mini app demonstrates a simple product listing and details screen u
 ## Features
 
 -Authentication: Users can sign in using Google or email/password. Profile information such as the profile image (with a cropping option), first name, and last name can be edited.
+
 -Home Screen: Displays products fetched from an API with their images, names, and prices. A search bar allows users to filter products.
+
 -Navigation: Custom drawer includes the user's image, name, and an option to edit the profile. The drawer also includes options to log out and switch between Arabic and English localization.
+
 -Product Details: Clicking on a product navigates to a Product Details Screen displaying the product description.
+
 -Cart: Users can add products to their cart, which displays the total price. A Stripe payment method is integrated for processing payments.
+
 -App Bar: Includes a search bar and a cart icon for easy navigation.
 
 ## Architecture and State Management
