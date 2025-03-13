@@ -40,7 +40,10 @@ The `fetchProducts` function in the `ProductViewModel` handles fetching product 
 
 The UI design follows modern design practices and ensures responsiveness. The Home Screen displays a list of products with their images, names, and prices. The Product Details Screen includes an "Add to Cart" button.
 
-<img width="291" alt="Screenshot 2024-12-10 173754" src="https://github.com/user-attachments/assets/48070ff4-18f3-46b0-a26f-16786e24165a">
-<img width="257" alt="Screenshot 2024-12-10 173846" src="https://github.com/user-attachments/assets/f802f72d-3e37-488f-b750-0e7c851eb6f9">
-<img width="263" alt="Screenshot 2024-12-10 174007" src="https://github.com/user-attachments/assets/b3c97ed6-61a8-4ac0-9001-27879e35cae4">
-<img width="721" alt="Screenshot 2024-12-10 174104" src="https://github.com/user-attachments/assets/197e30f7-57f7-421a-bf7a-b091927ec94d">
+
+
+
+<img width="250" alt="Screenshot 2024-12-10 173754" src="https://github.com/user-attachments/assets/48070ff4-18f3-46b0-a26f-16786e24165a">
+<img width="250" alt="Screenshot 2024-12-10 173846" src="https://github.com/user-attachments/assets/a2bc83ca-72c3-467e-8c93-4dc6c074fee8">
+<img width="250" alt="Screenshot 2024-12-10 174007" src="https://github.com/user-attachments/assets/a12cb75c-55db-475d-8ae7-46442c022178">
+<img width="250" alt="Screenshot 2024-12-10 174104" src="https://github.com/user-attachments/assets/b334c617-b11a-49e9-8d40-a2ddf152de95">
