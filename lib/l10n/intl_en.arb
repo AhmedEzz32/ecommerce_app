@@ -24,5 +24,7 @@
     "email": "Email",
     "password": "Password",
     "login": "Login",
-    "register": "Register"
+    "register": "Register",
+    "dont_have_account_sign_up": "Don't have account? Sign up",
+    "sign_up": "Sign up"
 }

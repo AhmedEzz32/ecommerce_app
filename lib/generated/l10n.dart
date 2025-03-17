@@ -229,6 +229,21 @@ class S {
   String get register {
     return Intl.message('Register', name: 'register', desc: '', args: []);
   }
+
+  /// `Don't have account? Sign up`
+  String get dont_have_account_sign_up {
+    return Intl.message(
+      'Don\'t have account? Sign up',
+      name: 'dont_have_account_sign_up',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sign up`
+  String get sign_up {
+    return Intl.message('Sign up', name: 'sign_up', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

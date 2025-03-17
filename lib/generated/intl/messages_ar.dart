@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "cart": MessageLookupByLibrary.simpleMessage("السلة"),
     "checkout": MessageLookupByLibrary.simpleMessage("الدفع"),
+    "dont_have_account_sign_up": MessageLookupByLibrary.simpleMessage(
+      "ليس لديك حساب؟ سجل",
+    ),
     "edit_profile": MessageLookupByLibrary.simpleMessage("تعديل الملف الشخصي"),
     "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
     "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
@@ -45,6 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "price": MessageLookupByLibrary.simpleMessage("السعر"),
     "products": MessageLookupByLibrary.simpleMessage("المنتجات"),
     "register": MessageLookupByLibrary.simpleMessage("تسجيل"),
+    "sign_up": MessageLookupByLibrary.simpleMessage("سجل"),
     "stripe_service_disposed_failed": MessageLookupByLibrary.simpleMessage(
       "فشل التخلص من خدمة Stripe",
     ),

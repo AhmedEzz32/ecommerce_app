@@ -1,4 +1,3 @@
-
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferenceDataSource {
@@ -65,4 +64,11 @@ class SharedPreferenceDataSource {
   Future<void> reload() async {
     await sharedPreferences.reload();
   }
+
+  // Save the image path
+  Future<void> saveImagePath(String path) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('profile_image_path', path);
+  }
+
 }

@@ -1,10 +1,13 @@
 import 'dart:io';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:mini_app/core/constants.dart';
 import 'package:mini_app/persentation/edit_profile/view_model/edit_profile_view_model.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileEditScreen extends StatefulWidget {
   const ProfileEditScreen({super.key});
@@ -22,14 +25,42 @@ class ProfileEditScreenState extends State<ProfileEditScreen> {
     super.initState();
 
     _viewModel = EditProfileViewModel();
-
     final user = FirebaseAuth.instance.currentUser;
     if (user == null) return;
 
-    _viewModel.updateFirstName(user.displayName?.split(' ')[0] ?? '');
-    _viewModel.updateLastName(user.displayName?.split(' ')[1] ?? '');
+    List<String> nameParts = (user.displayName ?? '').split(' ');
+    String firstName = nameParts.isNotEmpty ? nameParts[0] : '';
+    String lastName = nameParts.length > 1 ? nameParts.sublist(1).join(' ') : ''; 
+
+    _viewModel.updateFirstName(firstName);
+    _viewModel.updateLastName(lastName);
     _viewModel.updateEmail(user.email ?? '');
+
+    // ✅ Fix: Don't try to convert a URL to a File
     _viewModel.updateImage(null);
+    _loadUserProfile();
+  }
+
+  Future<void> _loadUserProfile() async {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
+
+    // Fetch user profile data from Firestore (replace this with your actual Firestore fetching logic)
+    final userDoc = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+
+    if (userDoc.exists) {
+      final data = userDoc.data()!;
+      _viewModel.updateFirstName(data['firstName']);
+      _viewModel.updateLastName(data['lastName']);
+      _viewModel.updateEmail(data['email']);
+      
+      // If you are storing the image as a URL or path, you can handle that too
+      if (data['profileImage'] != null) {
+        _viewModel.updateImage(File(data['profileImage']));
+      } else {
+        _viewModel.updateImage(null);
+      }
+    }
   }
 
   Future<void> _pickImage() async {
@@ -77,6 +108,7 @@ class ProfileEditScreenState extends State<ProfileEditScreen> {
       setState(() {
         _viewModel.updateImage(File(croppedFile.path));
       });
+      await _saveImagePath(croppedFile.path);
     }
   }
 
@@ -92,8 +124,9 @@ class ProfileEditScreenState extends State<ProfileEditScreen> {
               children: [
                 CircleAvatar(
                   radius: 50,
-                  backgroundImage:
-                      _viewModel.imageFile != null ? FileImage(_viewModel.imageFile!) : NetworkImage(FirebaseAuth.instance.currentUser?.photoURL ?? ''),
+                  backgroundImage: _viewModel.imageFile != null
+                      ? FileImage(_viewModel.imageFile!)
+                      : NetworkImage(FirebaseAuth.instance.currentUser?.photoURL ?? Constants().default_image),
                 ),
                 PositionedDirectional(
                   bottom: 0,
@@ -142,5 +175,10 @@ class ProfileEditScreenState extends State<ProfileEditScreen> {
         ),
       ),
     );
+  }
+
+  Future<void> _saveImagePath(String path) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString('profile_image_path', path);
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:mini_app/persentation/sign_in/view/widgets/login_body.dart';
-import 'package:mini_app/persentation/sign_in/view_model/login_view_model.dart';
+import 'package:mini_app/persentation/auth/view/widgets/login_body.dart';
+import 'package:mini_app/persentation/auth/view_model/login_view_model.dart';
 
 class LoginView extends StatefulWidget {
   const LoginView({super.key});

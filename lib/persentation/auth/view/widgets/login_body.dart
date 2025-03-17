@@ -1,9 +1,11 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:mini_app/core/constants.dart';
 import 'package:mini_app/generated/l10n.dart';
+import 'package:mini_app/persentation/auth/view/widgets/sign_up.dart';
 import 'package:mini_app/persentation/home/view/home_view.dart';
-import 'package:mini_app/persentation/sign_in/view_model/login_view_model.dart';
+import 'package:mini_app/persentation/auth/view_model/login_view_model.dart';
 import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginViewBody extends StatefulWidget {
@@ -21,31 +23,58 @@ class _LoginViewBodyState extends State<LoginViewBody> {
   bool isLoading = false;
 
   Future<void> _loginWithEmail() async {
-    setState(() => isLoading = true);
-    try {
-      UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-        email: _emailController.text,
-        password: _passwordController.text,
-      );
-      final user = userCredential.user;
-      if (user != null) {
+  setState(() => isLoading = true);
+  try {
+    // Sign in the user with email and password
+    UserCredential userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
+      email: _emailController.text,
+      password: _passwordController.text,
+    );
+    final user = userCredential.user;
+
+    // Fetch the user profile from Firestore (assuming user profile is stored in 'users' collection)
+    if (user != null) {
+      DocumentSnapshot userDoc = await FirebaseFirestore.instance.collection('users').doc(user.uid).get();
+
+      if (userDoc.exists) {
+        final userData = userDoc.data() as Map<String, dynamic>;
+
+        String firstName = userData['firstName'] ?? '';
+        String lastName = userData['lastName'] ?? '';
+
+        // Navigate to the home screen with the fetched data
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(
             builder: (_) => HomeScreen(
-              firstName: user.displayName?.split(' ')[0] ?? '',
-              lastName: user.displayName?.split(' ')[1] ?? '',
+              firstName: firstName,
+              lastName: lastName,
+              profileImage: user.photoURL ?? Constants().default_image,
+              email: user.email,
+            ),
+          ),
+        );
+      } else {
+        // Handle the case where user data doesn't exist (e.g., show default values or create profile)
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (_) => HomeScreen(
+              firstName: '',
+              lastName: '',
               profileImage: user.photoURL ?? Constants().default_image,
               email: user.email,
             ),
           ),
         );
       }
-    } catch (e) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
     }
-    setState(() => isLoading = false);
+  } catch (e) {
+    // Show error message if login fails
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(e.toString())));
   }
+  setState(() => isLoading = false);
+}
 
   @override
   Widget build(BuildContext context) {
@@ -101,7 +130,17 @@ class _LoginViewBodyState extends State<LoginViewBody> {
                       }
                       setState(() => isLoading = false);
                     },
-                  ),
+                ),
+                            const SizedBox(height: 10),
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const SignUpView()),
+                );
+              },
+              child: Text(S.current.dont_have_account_sign_up),
+            ),
           ],
         ),
       ),

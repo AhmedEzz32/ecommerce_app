@@ -1,41 +1,32 @@
 
-import 'dart:io' show File;
+import 'dart:io' show File; 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart'; 
+import 'package:flutter/material.dart'; 
+import 'package:mini_app/persentation/home/view/home_view.dart'; 
+  
+class EditProfileViewModel { 
 
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
-import 'package:mini_app/core/constants.dart';
-import 'package:mini_app/core/di/service_locators.dart';
-import 'package:mini_app/data/requests/requests.dart';
-import 'package:mini_app/domain/repository/repository.dart';
-import 'package:mini_app/domain/usecase/edit_profile_usecase.dart';
-import 'package:mini_app/persentation/home/view/home_view.dart';
 
-class EditProfileViewModel {
+  final TextEditingController _firstNameController = TextEditingController(); 
+  TextEditingController get firstNameController => _firstNameController; 
 
-  late final EditProfileUsecase _editProfileUsecase;
+  final TextEditingController _lastNameController = TextEditingController(); 
+  TextEditingController get lastNameController => _lastNameController; 
 
-  final TextEditingController _firstNameController = TextEditingController();
-  TextEditingController get firstNameController => _firstNameController;
+  final TextEditingController _emailController = TextEditingController(); 
+  TextEditingController get emailController => _emailController; 
 
-  final TextEditingController _lastNameController = TextEditingController();
-  TextEditingController get lastNameController => _lastNameController;
+  File? _imageFile; 
+  File? get imageFile => _imageFile; 
 
-  final TextEditingController _emailController = TextEditingController();
-  TextEditingController get emailController => _emailController;
-
-  File? _imageFile;
-  File? get imageFile => _imageFile;
-
-  EditProfileViewModel() {
-    _editProfileUsecase = EditProfileUsecase(getIt<Repository>());
+  void updateImage(File? imageFile, {String? networkImage}) {
+    _imageFile = imageFile; 
   }
 
-  void updateImage(File? imageFile) {
-    _imageFile = imageFile;
-  }
 
-  void updateFirstName(String firstName) {
-    _firstNameController.text = firstName;
+  void updateFirstName(String firstName) { 
+    _firstNameController.text = firstName; 
   }
 
   void updateLastName(String lastName) {
@@ -47,30 +38,47 @@ class EditProfileViewModel {
   }
 
   Future<void> saveProfile(BuildContext context) async {
-    try {
-      final user = FirebaseAuth.instance.currentUser;
-      if (user == null) return;
+  try {
+    final user = FirebaseAuth.instance.currentUser;
+    if (user == null) return;
 
-      await _editProfileUsecase.call(
-        EditProfileRequest(
-          id: user.uid,
-          firstName: _firstNameController.text,
-          lastName: _lastNameController.text,
-          image: _imageFile,
-        ),
-      );
+    final userDocRef = FirebaseFirestore.instance.collection('users').doc(user.uid);
 
-      Navigator.push(
-        context, 
-        MaterialPageRoute(builder: (_) => HomeScreen(
+    // 🔹 Check if the user document exists
+    final docSnapshot = await userDocRef.get();
+    if (!docSnapshot.exists) {
+      // 🔹 Create the document if it doesn't exist
+      await userDocRef.set({
+        'firstName': _firstNameController.text,
+        'lastName': _lastNameController.text,
+        'email': _emailController.text,
+        'profileImage': _imageFile != null ? _imageFile!.path : user.photoURL,
+      });
+      debugPrint("New user document created.");
+    } else {
+      // 🔹 Update the document if it exists
+      await userDocRef.update({
+        'firstName': _firstNameController.text,
+        'lastName': _lastNameController.text,
+        'email': _emailController.text,
+        'profileImage': _imageFile != null ? _imageFile!.path : user.photoURL,
+      });
+      debugPrint("User profile updated.");
+    }
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => HomeScreen(
           firstName: _firstNameController.text,
           lastName: _lastNameController.text,
           email: _emailController.text,
-          profileImage: _imageFile?.path ?? Constants().default_image,
-        )),
-      );
-    } catch (e) {
-      debugPrint("Error saving profile: $e");
-    }
+          profileImage: _imageFile != null ? _imageFile!.path : user.photoURL,
+        ),
+      ),
+    );
+  } catch (e) {
+    debugPrint("Error saving profile: $e");
   }
+}
 }

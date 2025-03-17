@@ -25,6 +25,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   late final ProductViewModel productViewModel;
+  late String profileImagePath;
 
   @override
   void initState() {

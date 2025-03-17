@@ -23,5 +23,7 @@
     "email": "البريد الإلكتروني",
     "password": "كلمة المرور",
     "login": "تسجيل الدخول",
-    "register": "تسجيل"
+    "register": "تسجيل",
+    "dont_have_account_sign_up": "ليس لديك حساب؟ سجل",
+    "sign_up": "سجل"
 }

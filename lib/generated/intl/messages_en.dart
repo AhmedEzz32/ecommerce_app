@@ -27,6 +27,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "cart": MessageLookupByLibrary.simpleMessage("Cart"),
     "checkout": MessageLookupByLibrary.simpleMessage("Checkout"),
+    "dont_have_account_sign_up": MessageLookupByLibrary.simpleMessage(
+      "Don\'t have account? Sign up",
+    ),
     "edit_profile": MessageLookupByLibrary.simpleMessage("Edit Profile"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "english": MessageLookupByLibrary.simpleMessage("English"),
@@ -41,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "price": MessageLookupByLibrary.simpleMessage("Price"),
     "products": MessageLookupByLibrary.simpleMessage("Products"),
     "register": MessageLookupByLibrary.simpleMessage("Register"),
+    "sign_up": MessageLookupByLibrary.simpleMessage("Sign up"),
     "stripe_service_disposed_failed": MessageLookupByLibrary.simpleMessage(
       "Stripe service disposed failed",
     ),
