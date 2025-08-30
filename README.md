@@ -1,4 +1,4 @@
-# Flutter Mini App
+# E-commerce App
 
 This Flutter mini app demonstrates a simple product listing and details screen using the MVVM architecture and Provider for state management.
 
