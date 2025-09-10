@@ -42,3 +42,4 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 mini_app/
+lib/core/constants.dart
